@@ -8,10 +8,6 @@ import (
 	htmlHandler "flavor/internal/handlers/html"
 	"os"
 
-	//"github.com/kataras/iris/v12"
-	//"github.com/gofiber/fiber/v2"
-	//"github.com/gofiber/template/html/v2"
-
 	"html/template"
 	"io"
 
@@ -71,10 +67,6 @@ func (a *App) initServiceProvider(_ context.Context) error {
 
 func (a *App) initApp(_ context.Context) error {
 
-	// template := &Template{
-	// 	templates: template.Must(template.ParseGlob("../../internal/templates/v1/views/*.html")),
-	// }
-
 	allTemplates := template.Must(template.ParseGlob("../../internal/templates/v1/views/*.html"))
 
 	allTemplates = template.Must(allTemplates.ParseGlob("../../internal/templates/v1/views/partials/*.html"))
@@ -122,56 +114,3 @@ type Template struct {
 func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Context) error {
 	return t.templates.ExecuteTemplate(w, name, data)
 }
-
-func (a *App) UpdateRandProd(ctx context.Context) error {
-	prodStor := a.serviceProvider.productStorage
-
-	for offset := 0; offset < 1000; offset++ {
-		products, err := prodStor.GetAll(ctx, 1000, offset)
-		if len(products) == 0 || err != nil {
-			return err
-		}
-		for _, prod := range products {
-			newProd := createProduct()
-			prod.Path = newProd.Path
-			prodStor.Update(ctx, prod)
-		}
-	}
-
-	return nil
-
-}
-
-//func (a *App) GenerateProducts(ctx context.Context) error {
-
-// 	prodService := a.serviceProvider.catalogservice
-
-// 	println("generate started...")
-
-// 	startTime := time.Now()
-
-// 	for j := 0; j < 100000; j++ {
-// 		product := createProduct()
-// 		err := prodService.Create(ctx, product)
-// 		if err != nil {
-// 			fmt.Println(err)
-// 			return err
-// 		}
-
-// 	}
-
-// 	// Засекаем конечное время
-// 	endTime := time.Now()
-
-// 	// Вычисляем разницу между начальным и конечным временем
-// 	elapsedTime := endTime.Sub(startTime)
-
-// 	// Выводим результат
-// 	fmt.Printf("Операция заняла %s\n", elapsedTime)
-
-// 	println("generate success")
-
-// 	return nil
-
-// 	//fmt.Printf("%+v\n", product)
-// }

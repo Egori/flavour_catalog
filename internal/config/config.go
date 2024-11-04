@@ -39,10 +39,6 @@ func parse() {
 //
 // After `Load` the callers can get an environment variable via `os.Getenv`.
 func Load(envFileName string) {
-	if args := os.Args; len(args) > 1 && args[1] == "help" {
-		fmt.Fprintln(os.Stderr, "https://github.com/kataras/iris/blob/main/_examples/database/mongodb/README.md")
-		os.Exit(-1)
-	}
 
 	// If more than one filename passed with comma separated then load from all
 	// of these, a env file can be a partial too.
@@ -60,11 +56,6 @@ func Load(envFileName string) {
 			}
 		}
 	}
-
-	// envMap, _ := godotenv.Read(envFiles...)
-	// for k, v := range envMap {
-	// 	log.Printf("◽ %s=%s\n", k, v)
-	// }
 
 	parse()
 }

@@ -78,6 +78,5 @@ func (s *serviceProvider) ProductService() service.CatalogService {
 }
 
 func (s *serviceProvider) InitServices() {
-	//_ = s.MovieService()
 	_ = s.ProductService()
 }
