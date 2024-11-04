@@ -1,0 +1,28 @@
+
+
+      <!--Grid row-->
+      <div class="row">
+        <!--Grid column-->
+        <div class="col-md-10 mb-4">
+          <!--Section: Content-->
+          <section>
+
+            {{range .Products}}
+            
+              {{ template "products/post" .}}
+            {{end}}
+          
+            
+
+
+          </section>
+          <!--Section: Sidebar-->
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+      {{if .Pagination.NextPage}}
+        {{ template "products/pagination" .Pagination}}
+      {{end}}
+
+

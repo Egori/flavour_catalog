@@ -1,0 +1,27 @@
+{{ define "product/main" }}
+
+<!-- https://templatesjungle.com/demo/?url=https://demo.templatesjungle.com/foodmart/&purl=https://templatesjungle.gumroad.com/l/foodmart-bootstrap-html-template -->
+
+<div class="container-fluid">
+    
+    <div class="row g-5">
+      <div class="col-lg-4">
+        {{ template "product/img" .Product}}
+      </div>
+      <div class="col-lg-8">
+        {{ template "product/info" .Product}}
+      </div>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-lg-5">
+        {{ template "product/info_table" .Product}}
+      </div>
+      <div class="col-lg-7">
+        {{ template "product/tab_info_horizontal" .Product}}
+      </div>
+    </div>
+
+  </div>
+
+  {{end}}

@@ -1,0 +1,57 @@
+{{ define "product/info" }}
+
+<div class="product-info">
+  <div class="element-header">
+    <h2 itemprop="name" class="display-6">{{.Name}}</h2>
+
+  </div>
+
+  <p>{{.Description}}</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="meta-product py-2">
+    <div class="meta-item d-flex align-items-baseline">
+      <h6 class="item-title no-margin pe-2">SKU:</h6>
+      <ul class="select-list list-unstyled d-flex">
+        <li data-value="S" class="select-item">1223</li>
+      </ul>
+    </div>
+    <div class="meta-item d-flex align-items-baseline">
+      <h6 class="item-title no-margin pe-2">Category:</h6>
+      <ul class="select-list list-unstyled d-flex">
+        <li data-value="S" class="select-item">
+          <a href="#">Watch</a>,
+        </li>
+        <li data-value="S" class="select-item">
+          <a href="#"> Screen touch</a>,
+        </li>
+      </ul>
+    </div>
+    <div class="meta-item d-flex align-items-baseline">
+      <h6 class="item-title no-margin pe-2">Tags:</h6>
+      <ul class="select-list list-unstyled d-flex">
+        <li data-value="S" class="select-item">
+          <a href="#">Classic</a>,
+        </li>
+        <li data-value="S" class="select-item">
+          <a href="#"> Modern</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+{{end}}

@@ -1,0 +1,16 @@
+{{ define "product/info_table" }}
+
+<table class="table">
+    <tbody>
+        {{range $val := .CategoryProperties}}
+        <tr>
+            <td>{{$val.Name}}</td>
+            <td><a href="../catalog/{{$val.Path}}">{{$val.Value}}</a></td>
+        </tr>
+        {{end}}
+
+    </tbody>
+  </table>
+
+
+  {{end}}

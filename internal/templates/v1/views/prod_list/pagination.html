@@ -1,0 +1,38 @@
+{{ define "products/pagination" }}
+
+ <!-- Pagination -->
+ <nav class="my-4" aria-label="...">
+    <ul class="pagination pagination-circle justify-content-center">
+      {{if .HasPrev}}
+      <li class="page-item">
+        <a class="page-link" href="{{.URLPrev}}" tabindex="-1" aria-disabled="true" hx-get="{{.URLPrev}}" hx-target="#embed"><</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="1" hx-get="{{.URLFirst}}" hx-target="#embed">1</a></li>
+      {{if ne .PrevPage 1}}
+      <li class="page-item">
+        <a class="page-link" href="{{.URLPrev}}" tabindex="-1" aria-disabled="true" hx-get="{{.URLPrev}}" hx-target="#embed">{{.PrevPage}}</a>
+      </li>
+      {{end}} 
+      {{end}}      
+      <li class="page-item active" aria-current="page">
+        <a class="page-link" href="" hx-get="{{.URLCurrent}}" hx-target="#embed">{{.CurrentPage}} <span class="visually-hidden-focusable">(current)</span></a>
+      </li>
+      {{if .HasNext}}
+      <li class="page-item" >
+        <a class="page-link" href="{{.URLNext}}" hx-get="{{.URLNext}}" hx-target="#embed">{{.NextPage}}</a>
+      </li>
+      <li class="page-item page-link">...</li>
+      <li class="page-item">
+        <a class="page-link" href="{{.URLLast}}" hx-get="{{.URLLast}}" hx-target="#embed">
+          {{.CountPages}}
+        </a>
+        </li>
+      <li class="page-item ">
+        <a class="page-link" href="{{.URLNext}}" hx-get="{{.URLNext}}" hx-target="#embed">></a>
+      </li>
+      {{end}}
+    </ul>
+  </nav>
+
+  {{ end }}
+  

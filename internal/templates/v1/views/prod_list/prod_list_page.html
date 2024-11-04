@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    {{ template "partials/head" .}}
+<body>
+    <header>
+        {{ template "partials/navbar" .}}
+    </header>
+      <!--Main layout-->
+  <main class="my-5">
+    <div class="container">
+          <div id="embed">
+            {{ template "prod_list.html" .}}
+          </div>
+        
+    </div>
+</main>
+
+{{ template "partials/footer" .}}
+
+</body>
+</html>

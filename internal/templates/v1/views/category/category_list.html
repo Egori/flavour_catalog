@@ -1,0 +1,19 @@
+<!--Grid row-->
+<div class="row">
+  <!--Grid column-->
+  <div class="col-md-9 mb-4">
+    <!--Section: Content-->
+    <section>
+
+      {{range .SubCategories}}
+      {{ template "category/post" .}}
+      {{end}}
+
+
+
+    </section>
+    <!--Section: Sidebar-->
+  </div>
+  <!--Grid column-->
+</div>
+<!--Grid row-->
